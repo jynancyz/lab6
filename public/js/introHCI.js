@@ -33,9 +33,16 @@ function addProjectDetails(e) {
  /*Click handler*/
 	$.get("/project/" + idNumber, function(response){
 		console.log(response);
-		$("#" + projectID + ".details").html(addProject(response));
+		$("#project" + projectID + ".details").html(addProject(response));
 	});
 }
+
+function callback(result){
+	console.log(result);
+}
+
+$("#project").click(function(e))
+$.get("/project/random", addProject);
 
 /*Adding project with result*/
 function addProject(result) {
@@ -43,6 +50,6 @@ function addProject(result) {
     '<img src="' + result['image'] + '" class="detailsImage">' +
     '<p>' + result['title'] + '</p>' +
     '<p><small>' + result['date'] +
-    '</small></p> <p>' + result['summary']+'</p>'+ '</a>'; 
+    '</small></p></a>'; 
 }
 
