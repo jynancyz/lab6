@@ -41,8 +41,10 @@ function callback(result){
 	console.log(result);
 }
 
-$("#project").click(function(e))
-$.get("/project/random", addProject);
+$("#project").click(function(e){
+	$.get("/project/random", addProject);
+
+});
 
 /*Adding project with result*/
 function addProject(result) {
@@ -51,5 +53,8 @@ function addProject(result) {
     '<p>' + result['title'] + '</p>' +
     '<p><small>' + result['date'] +
     '</small></p></a>'; 
+
+    $("#project-container").html(projectHTML);
+    $("#project-description").html(result['summary']);
 }
 
